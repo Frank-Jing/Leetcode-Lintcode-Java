@@ -11,6 +11,7 @@ public class LC04_MedianTwoSortedArray {
         * Space complexity is O(1)
         * https://leetcode.com/problems/median-of-two-sorted-arrays/
         * https://discuss.leetcode.com/topic/4996/share-my-o-log-min-m-n-solution-with-explanation/4
+        * https://www.youtube.com/watch?v=LPFhl65R7ww&t=81s
         */
 
         public static double findMedianSortedArrays(int[] input1, int[] input2) {
