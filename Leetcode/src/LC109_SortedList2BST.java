@@ -11,11 +11,11 @@ public class LC109_SortedList2BST {
 
         TreeNode top = new TreeNode(mid.val);
 
-        beforeMid.next = null;
+        beforeMid.next = null; //avoid loop
         top.left = sortedListToBST(head);
 
         top.right = sortedListToBST(mid.next);
-        mid.next = null;
+        mid.next = null;//avoid loop
 
         return top;
     }
