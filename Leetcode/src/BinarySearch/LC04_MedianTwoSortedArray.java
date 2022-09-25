@@ -1,4 +1,4 @@
-package Leetcode.src.LinkedList;
+package Leetcode.src.BinarySearch;
 
 import java.sql.Time;
 
