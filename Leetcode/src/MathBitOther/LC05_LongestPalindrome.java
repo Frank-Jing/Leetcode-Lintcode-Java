@@ -1,4 +1,4 @@
-package Leetcode.src.LinkedList;
+package Leetcode.src.MathBitOther;
 
 public class LC05_LongestPalindrome {
     public String longestPalindrome(String s) {

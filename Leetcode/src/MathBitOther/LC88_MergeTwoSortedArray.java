@@ -1,4 +1,4 @@
-package Leetcode.src.LinkedList;
+package Leetcode.src.MathBitOther;
 
 public class LC88_MergeTwoSortedArray {
     public void merge(int[] nums1, int m, int[] nums2, int n) {

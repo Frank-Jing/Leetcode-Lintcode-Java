@@ -1,4 +1,4 @@
-package Leetcode.src.LinkedList;
+package Leetcode.src.MathBitOther;
 
 import java.util.HashMap;
 import java.util.Map;

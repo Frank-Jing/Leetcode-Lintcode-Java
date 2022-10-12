@@ -1,5 +1,7 @@
 package Leetcode.src.LinkedList;
 
+import Leetcode.src.LinkedList.ListNode;
+
 public class LC148_SortList {
     public ListNode sortList(ListNode head) {
         if(head == null || head.next == null) return head;
