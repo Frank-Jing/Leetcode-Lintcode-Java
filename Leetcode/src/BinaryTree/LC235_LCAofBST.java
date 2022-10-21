@@ -32,7 +32,7 @@ public class LC235_LCAofBST {
             }else if(p.val > head.val){
                 return process(head.right, p, q);
             }
-
+            //if processed to this step, x == p or q and x is the LCA
             return new Info(true, true, head);
         }
     }
