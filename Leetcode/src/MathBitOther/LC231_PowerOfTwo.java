@@ -23,3 +23,4 @@ public class LC231_PowerOfTwo {
         return (n & (n-1)) == 0;
     }
 }
+
