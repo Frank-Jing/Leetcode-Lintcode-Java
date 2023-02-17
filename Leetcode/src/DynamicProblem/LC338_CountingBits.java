@@ -3,16 +3,16 @@ package Leetcode.src.DynamicProblem;
 public class LC338_CountingBits {
     class Solution_1 {
         public int[] countBits(int n) {
-            int[] ans = new int[n+1];
-            for(int i = 0; i <= n; i++){
+            int[] ans = new int[n + 1];
+            for (int i = 0; i <= n; i++) {
                 ans[i] = countOnes(i);
             }
             return ans;
         }
 
-        public int countOnes(int num){
+        public int countOnes(int num) {
             int cnt = 0;
-            while(num != 0){
+            while (num != 0) {
                 int mostRightOne = num & (~num + 1);
                 num -= mostRightOne;
                 cnt++;
@@ -23,17 +23,17 @@ public class LC338_CountingBits {
 
     class Solution_2 {
         public int[] countBits(int n) {
-            int[] ans = new int[n+1];
-            for(int i = 0; i <= n; i++){
+            int[] ans = new int[n + 1];
+            for (int i = 0; i <= n; i++) {
                 ans[i] = countOnes(i);
             }
             return ans;
         }
 
-        public int countOnes(int num){
+        public int countOnes(int num) {
             int cnt = 0;
             int pos = 31;
-            while(pos >= 0){
+            while (pos >= 0) {
                 cnt += (num >> pos) & 1;
                 pos--;
             }
