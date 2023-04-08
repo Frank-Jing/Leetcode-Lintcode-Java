@@ -1,8 +1,6 @@
-package Leetcode.src.UnionFind;
+package Leetcode.src.Graph;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 public class LC947_MostStonesRemoved {
     class Solution_wrong {
@@ -115,6 +113,56 @@ public class LC947_MostStonesRemoved {
             }
 
             return n - uf.size;
+        }
+    }
+
+    class Solution_DFS {
+        final int K = 10001; // x all <= 10000, so y+K must not overlap
+
+        public int removeStones(int[][] stones) {
+            Map<Integer, List<Integer>> graph = generateGraph(stones);
+
+            Set<Integer> visited = new HashSet<>();
+            int component = 0;
+            for(int cur : graph.keySet()){
+                if(!visited.contains(cur)){
+                    component++;
+                    dfs(cur, graph, visited);
+                }
+            }
+            return stones.length - component;
+
+        }
+
+        public Map<Integer, List<Integer>> generateGraph(int[][] stones){
+            Map<Integer, List<Integer>> adj = new HashMap<>();
+            for(int[] cord : stones){
+                int x = cord[0];
+                int y = cord[1] + K;
+                if(!adj.containsKey(x)){
+                    adj.put(x, new ArrayList<Integer>());
+                }
+                if(!adj.containsKey(y)){
+                    adj.put(y, new ArrayList<Integer>());
+                }
+                adj.get(x).add(y);
+                adj.get(y).add(x);
+            }
+
+            return adj;
+        }
+
+        public void dfs(int cur, Map<Integer, List<Integer>> graph, Set<Integer> visited){
+            if(!visited.contains(cur)){
+                visited.add(cur);
+            }
+
+            for(int next: graph.get(cur)){
+                if(!visited.contains(next)){
+                    dfs(next, graph, visited);
+                }
+            }
+            return;
         }
     }
 }
