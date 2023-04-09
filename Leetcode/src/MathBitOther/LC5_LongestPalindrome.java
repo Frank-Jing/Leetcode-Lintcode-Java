@@ -1,6 +1,6 @@
 package Leetcode.src.MathBitOther;
 
-public class LC05_LongestPalindrome {
+public class LC5_LongestPalindrome {
     public String longestPalindrome(String s) {
         //brutal force
         int maxLen = 0;

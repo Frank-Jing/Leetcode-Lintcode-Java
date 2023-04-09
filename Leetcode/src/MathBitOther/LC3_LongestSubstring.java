@@ -3,7 +3,7 @@ package Leetcode.src.MathBitOther;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LC03_LongestSubstring {
+public class LC3_LongestSubstring {
     class Solution {
         public int lengthOfLongestSubstring(String s) {
             Map<Character, Integer> tab = new HashMap<>();

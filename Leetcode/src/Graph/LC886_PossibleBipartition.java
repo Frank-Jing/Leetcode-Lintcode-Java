@@ -144,9 +144,9 @@ public class LC886_PossibleBipartition {
 
             while (!stack.isEmpty()) {
                 int cur = stack.pop();
-                if (colors[cur] == -1) {
-                    colors[cur] = 0; //red
-                }
+//                if (colors[cur] == -1) {
+//                    colors[cur] = 0; //red
+//                }
                 for (int neighbour : adj[cur]) {
                     if (colors[neighbour] == colors[cur]) {
                         return false;
