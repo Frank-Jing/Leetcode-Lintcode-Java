@@ -60,11 +60,11 @@ public class LC1466_ReorderRoutesMakeAllPathsToCapital {
                 return;
             }
             for (int[] nei : adj[node]) {
-                int child = nei[0];
+                int next = nei[0];
                 int sign = nei[1];
-                if (child != parent) {
+                if (next != parent) {
                     count += sign;
-                    dfs(child, node, adj);
+                    dfs(next, node, adj);
                 }
             }
         }
