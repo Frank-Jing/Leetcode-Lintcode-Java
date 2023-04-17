@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class LC200_NumberOfIslands {
-    class Solution_recursive {
+    class Solution_DFS {
         public int numIslands(char[][] grid) {
 
             int cnt = 0;
@@ -61,8 +61,6 @@ public class LC200_NumberOfIslands {
 
             return uf.setCnt;
         }
-
-
     }
 
     class UnionFind {

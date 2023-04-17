@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LC305_NumberOfIslands_II {
-    class Solution {
+    class Solution_UnionFind {
         public List<Integer> numIslands2(int m, int n, int[][] positions) {
             List<Integer> ans = new LinkedList<>();
             UnionFind uf = new UnionFind(m, n);
