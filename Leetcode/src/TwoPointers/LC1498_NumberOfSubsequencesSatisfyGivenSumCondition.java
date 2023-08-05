@@ -2,6 +2,9 @@ package Leetcode.src.TwoPointers;
 
 import java.util.Arrays;
 
+// The key to this question is that:
+// after sort, the valid ans is still the same. Because, we only care about min and max
+// before sort, once min and max are fixed, any number in the array could be a valid sequence
 public class LC1498_NumberOfSubsequencesSatisfyGivenSumCondition {
     class Solution {
         public int numSubseq(int[] nums, int target) {

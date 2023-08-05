@@ -5,6 +5,7 @@ import java.util.Deque;
 
 public class LC230_BSTKthSmallestElement {
     class Solution_stackIterate {
+        // iterative inorder traverse
         public int kthSmallest(TreeNode root, int k) {
             Deque<TreeNode> stack = new ArrayDeque<>();
             int cnt = 0;
@@ -40,7 +41,10 @@ public class LC230_BSTKthSmallestElement {
             inorderProcess(head.left, k);
 
             this.cnt++;
-            if(cnt == k) this.target = head;
+            if(cnt == k) {
+                this.target = head;
+                return;
+            }
 
             inorderProcess(head.right, k);
         }
