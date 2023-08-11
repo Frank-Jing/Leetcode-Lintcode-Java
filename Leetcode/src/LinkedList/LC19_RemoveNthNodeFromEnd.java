@@ -37,7 +37,6 @@ public class LC19_RemoveNthNodeFromEnd {
         }
 
         ListNode pre = new ListNode();
-        ListNode cur = pre;
         pre.next = head;
 
         int cnt = 0;
