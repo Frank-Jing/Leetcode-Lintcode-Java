@@ -70,7 +70,7 @@ public class LC53_MaximumSubarray {
             for(int i = 1; i< N; i++){
                 // dp[i] means the maxSubArray ended with nums[i]
                 // so dp[i+1] has 2 scenarios:
-                // 1. dp[i] > 0, then nums[i] + dp[i-1] forms a new subarray ended with num[i+1]
+                // 1. dp[i] > 0, then nums[i+1] + dp[i] forms a new subarray ended with num[i+1]
                 // 2. ignore previous dp[i-1] since it's negative value;
                 dp[i] = Math.max(nums[i], dp[i-1] + nums[i]);
                 max = Math.max(dp[i], max);
