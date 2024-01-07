@@ -15,7 +15,7 @@ public class LC312_BurstBalloons {
         }
 
         //return the max coins between index i and index j
-        //while k is the last ballon to burst
+        //while k is the last balloon to burst
         public int process(int[] nums, int i, int j) {
             if (i == j) return nums[i - 1] * nums[i] * nums[i + 1];
 

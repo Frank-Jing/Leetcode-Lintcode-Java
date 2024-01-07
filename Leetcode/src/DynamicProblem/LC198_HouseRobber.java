@@ -34,4 +34,23 @@ public class LC198_HouseRobber {
             return dp[N];
         }
     }
+
+    class Solution_dp_II {
+        public int rob(int[] nums) {
+            int N = nums.length;
+            if(N == 1) return nums[0];
+
+            int nonRob = 0;
+            int rob = nums[0];
+
+            // current status only depend on last status
+            for(int i = 1; i<N; i++){
+                int nonRob_last = nonRob, rob_last = rob;
+                nonRob = Math.max(nonRob_last, rob_last);
+                rob = nonRob_last + nums[i];
+            }
+
+            return Math.max(nonRob, rob);
+        }
+    }
 }
