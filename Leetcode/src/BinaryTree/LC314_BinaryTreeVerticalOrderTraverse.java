@@ -1,9 +1,55 @@
 package Leetcode.src.BinaryTree;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 public class LC314_BinaryTreeVerticalOrderTraverse {
+    class Solution {
+        public List<List<Integer>> verticalOrder(TreeNode root) {
+            List<List<Integer>> res = new ArrayList<>();
+
+            if(root == null){
+                return res;
+            }
+
+            int minCol = 0;
+            int maxCol = 0;
+
+            Map<Integer, List<Integer>> colMap = new HashMap<>();
+            Queue<Pair<TreeNode, Integer>> q = new LinkedList<>();
+            q.offer(new Pair(root, 0));
+
+            while(!q.isEmpty()){
+                Pair<TreeNode, Integer> p = q.poll();
+                TreeNode node = p.getKey();
+                int col = p.getValue();
+
+                if(!colMap.containsKey(col)){
+                    colMap.put(col, new ArrayList<Integer>());
+                }
+                colMap.get(col).add(node.val);
+                minCol = Math.min(minCol, col);
+                maxCol = Math.max(maxCol, col);
+                
+                if(node.left != null){
+                    q.offer(new Pair(node.left, col - 1));
+                }
+                if(node.right != null){
+                    q.offer(new Pair(node.right, col + 1));
+                }    
+            }
+
+            for(int i = minCol; i <= maxCol; i++){
+                res.add(colMap.get(i));
+            }
+            
+            return res;
+        }
+    }
 
     class FAILED_Solution {
         //this soln can't resolve the order related with level

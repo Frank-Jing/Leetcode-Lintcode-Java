@@ -1,8 +1,8 @@
-package Leetcode.src.MathBitOther;
+package Leetcode.src.TwoPointers;
 
 import java.util.LinkedList;
 
-public class LC121_BestTimetoBuySellStock {
+public class LC121_BestTimeBuySellStock {
     class Solution_MonotonicStack {
         public int maxProfit(int[] prices) {
             int max = Integer.MIN_VALUE;
