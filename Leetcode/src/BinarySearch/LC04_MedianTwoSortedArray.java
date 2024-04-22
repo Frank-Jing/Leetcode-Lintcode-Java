@@ -1,7 +1,5 @@
 package Leetcode.src.BinarySearch;
 
-import java.sql.Time;
-
 public class LC04_MedianTwoSortedArray {
     class Solution {
         /*binary search
@@ -70,7 +68,6 @@ public class LC04_MedianTwoSortedArray {
                 mergedList[k++] = nums2[j++];
             }
 
-            double ans;
             if(((nums1.length + nums2.length)&1) == 0){
                 return (mergedList[(k-1)/2]+ mergedList[k/2])/2.0;
             }else{

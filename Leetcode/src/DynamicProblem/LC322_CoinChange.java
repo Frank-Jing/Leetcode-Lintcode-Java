@@ -1,10 +1,31 @@
 package Leetcode.src.DynamicProblem;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LC322_CoinChange {
+
+    // BFS with queue, the problem or recursive process can be viewed as a tree
+    // then with memorization, BFS level traversal can be applied
+    // def coinChange(self, coins: List[int], amount: int) -> int:
+    //     q = deque([(amount, 0)])
+    //     seen = set([amount])
+    //     while q:
+    //         accum_amount, num_coins = q.popleft()
+    //         if accum_amount == 0:
+    //                 return num_coins
+    //         for coin in coins:
+    //             if accum_amount - coin >= 0 and accum_amount - coin not in seen:
+    //                 q.append((accum_amount - coin, num_coins + 1))
+    //                 seen.add(accum_amount - coin)
+                    
+    //     return -1
+
     class Solution_recursion {
+        Map<Integer, Integer> memo = new HashMap<>();
         public int coinChange(int[] coins, int amount) {
+            Arrays.sort(coins);
             int ans = process(coins, amount, 0);
             if(ans == Integer.MAX_VALUE){
                 return -1;
@@ -16,6 +37,9 @@ public class LC322_CoinChange {
             if(pos == coins.length){
                 return amountLeft == 0? 0 : Integer.MAX_VALUE;
             }
+            if(memo.containsKey(amountLeft)){
+                return memo.get(amountLeft);
+            }
 
             int cnt = Integer.MAX_VALUE;
             for(int i = pos; i < coins.length; i++){
@@ -26,6 +50,7 @@ public class LC322_CoinChange {
                     }
                 }
             }
+            memo.put(amountLeft, cnt);
 
             return cnt;
         }

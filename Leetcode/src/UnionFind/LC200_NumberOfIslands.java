@@ -2,8 +2,61 @@ package Leetcode.src.UnionFind;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class LC200_NumberOfIslands {
+
+    class Solution_BFS {
+        public int numIslands(char[][] grid) {
+            if(grid == null || grid.length == 0){
+                return 0;
+            }
+    
+            int rowN = grid.length;
+            int colN = grid[0].length;
+            int cnt = 0;
+    
+            
+    
+            for(int i = 0; i<rowN; i++){
+                for(int j = 0; j < colN; j++){
+                    if(grid[i][j] == '1'){
+                        ++cnt;
+                        Queue<int[]> q = new LinkedList<>();
+                        q.offer(new int[]{i,j});
+                        grid[i][j] = '0';
+                        
+                        while(!q.isEmpty()){
+                            int[] pos = q.poll();
+                            int row = pos[0];
+                            int col = pos[1];
+    
+                            if(row - 1 >= 0 && grid[row - 1][col] == '1'){
+                                grid[row - 1][col] = '0';
+                                q.offer(new int[]{row-1, col});
+                            }
+                            if(row + 1 < rowN && grid[row + 1][col] == '1'){
+                                grid[row + 1][col] = '0';
+                                q.offer(new int[]{row+1, col});
+                            }
+                            if(col - 1 >= 0 && grid[row][col - 1] == '1'){
+                                grid[row][col - 1] = '0';
+                                q.offer(new int[]{row, col - 1});
+                            }
+                            if(col + 1 < colN && grid[row][col + 1] == '1'){
+                                grid[row][col + 1] = '0';
+                                q.offer(new int[]{row, col + 1});
+                            }
+                        }
+                    }
+                }
+            }
+    
+            return cnt;
+        }
+    }
+
     class Solution_DFS {
         public int numIslands(char[][] grid) {
 
